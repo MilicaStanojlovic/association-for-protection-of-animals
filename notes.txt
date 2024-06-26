@@ -1,0 +1,24 @@
+objava zivotinje uvijek stoji, nezavisno od statusa, jedino se status mijenja
+objave treba sortorati npr po broju lajkova i komentara, ali i pretraga po zivotinjama treba biti moguca tj po onim osobinama
+
+za neregistrovanog korisnika - ne prikazuje se adresa gdje je zivotinja
+			     - salje zahtjev za registr (volonter odobrava)
+
+
+za volontera - moze mijenjati objavu za zivotinju
+	     - import pdf izvoda od banke (kapiram opet tabela, broj izvoda, za koga je uplaceno tj je li generalno ili je za odredjenu zivotinju, ko je uplatio - moze biti 			anonimno,pdf sa izvodom, iznos uplate)
+	     - zna se kod koga je zivotinja trenutno
+	     - ocjenjivanje usvojitelja,komentar plus brojcano
+	     - crna lista usvojitelja (primijecene sumnnjive aktivnosti prilikom udomljavanja)
+	     - glasanje za dodavanje na crnu listu - moguca zabrana da ucestvuje reg korisnik ili volonter
+
+
+za administratora - unosi podatke o udruzenju
+		  - crud za sve
+		  - prikaz i sortiranje za sve
+
+
+mogu se donirati - novac, hrana, lijekovi, igracke (za zivotinju ili generalna)
+
+
+za komentare nije rekla da ih treba odobriti neko tkd samo pises komentar
