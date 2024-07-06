@@ -1,0 +1,70 @@
+﻿<Window x:Class="AssociationForProtectionOfAnimals.View.Adoption.VolunteerRequests"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AssociationForProtectionOfAnimals.View.Adoption"
+        mc:Ignorable="d"
+        Title="VolunteerRequests" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <TabControl>
+                <TabItem Header="Adoption requests">
+                    <StackPanel>
+                        <DataGrid Height="350"
+                                  AutoGenerateColumns="False"
+                                  x:Name="ExamTermsDataGrid"
+                                  ItemsSource="{Binding TableViewModel.AdoptionRequestDTOs, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedItem="{Binding SelectedAdoptionRequest, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectionMode="Single" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                                <DataGridTextColumn Header="Registered User" Binding="{Binding Username}"/>
+                                <DataGridTextColumn Header="Submission Date" Binding="{Binding RequestSubmissionDate, StringFormat={}{0:yyyy-MM-dd HH:mm}}"/>
+                                <DataGridTextColumn Header="Status" Binding="{Binding RequestStatus}"/>
+                                <DataGridTextColumn Header="Adoption Date" Binding="{Binding AdoptionDate, StringFormat={}{0:yyyy-MM-dd HH:mm}}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="15">
+                            <Button Content="Accept this request" Click="acceptAdoptionRequest_Click" Width="150"  Margin="10,0,10,0" FontSize="15" Foreground="White" Background="#4F519A"/>
+                            <Button Content="Deny this request" Click="denyAdoptionRequest_Click" Width="100"/>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="Temporary Shelter requests">
+                    <StackPanel>
+                        <DataGrid Height="350"
+                                  AutoGenerateColumns="False"
+                                  x:Name="s"
+                                  ItemsSource="{Binding TableViewModel.TempShelterRequestDTOs, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedItem="{Binding SelectedTempRequest, UpdateSourceTrigger=PropertyChanged}"
+                                  SelectionMode="Single" IsReadOnly="True" ColumnWidth="*">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                                <DataGridTextColumn Header="Registered User" Binding="{Binding Username}"/>
+                                <DataGridTextColumn Header="Status" Binding="{Binding RequestStatus}"/>
+                                <DataGridTextColumn Header="Submission Date" Binding="{Binding RequestSubmissionDate, StringFormat={}{0:yyyy-MM-dd HH:mm}}"/>
+                                <DataGridTextColumn Header="Accommodation Date" Binding="{Binding AccommodationDate, StringFormat={}{0:yyyy-MM-dd HH:mm}}"/>
+                                <DataGridTextColumn Header="Return Date" Binding="{Binding ReturnDate, StringFormat={}{0:yyyy-MM-dd HH:mm}}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="15">
+                            <Button Content="Accept this request" Click="acceptTempRequest_Click" Width="150"  Margin="10,0,10,0" FontSize="15" Foreground="White" Background="#4F519A"/>
+                            <Button Content="Deny this request" Click="denyTempRequest_Click" Width="100"/>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </Grid>
+</Window>
